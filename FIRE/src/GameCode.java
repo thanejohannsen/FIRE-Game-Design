@@ -5,29 +5,30 @@ public class GameCode {
     while (i < 10){
       # i is = to the amount of iterations of the game
       var colorvalue = Math.floor(Math.random() * 8);
+      
       if (colorvalue = 0){
-        black()
+        black();
       }
       else if (colorvalue = 1){
-        white()
+        white();
       }
       else if (colorvalue = 2){
-        red()
+        red();
       }
       else if (colorvalue = 3){
-        green()
+        green();
       }
       else if (colorvalue = 4){
-        blue()
+        blue();
       }
       else if (colorvalue = 5){
-        orange()
+        orange();
       }
       else if (colorvalue = 6){
-        purple()
+        purple();
       }
       else if (colorvalue = 7){
-        yellow()
+        yellow();
       }
  
     }
