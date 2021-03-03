@@ -1,6 +1,33 @@
 
 public class GameCode {
   
+    
+ #each function displays corresponding colors 
+  function black(){
+  }
+  function white(){
+  }
+  function red(){
+  }
+  function green(){
+  }
+  function blue(){
+  }
+  function orange(){
+  }
+  function purple(){
+  }
+  function yellow(){
+  }
+  
+  function input(){
+    #Checks for button press
+  }
+  
+  function check(){
+    #Checks if input matches colorvalue and returns true or calls upon input again if input is false.
+  }
+  
   function start(){
     while (i < 10){
       # i is = to the amount of iterations of the game
@@ -30,27 +57,14 @@ public class GameCode {
       else if (colorvalue = 7){
         yellow();
       }
+      
+      input();
+      check();
+      
  
     }
     
   }
   
-  
- #each function displays corresponding colors 
-  function black(){
-  }
-  function white(){
-  }
-  function red(){
-  }
-  function green(){
-  }
-  function blue(){
-  }
-  function orange(){
-  }
-  function purple(){
-  }
-  function yellow(){
-  }
+
 }
