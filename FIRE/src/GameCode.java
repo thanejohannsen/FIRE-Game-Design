@@ -7,16 +7,8 @@
 <input type="text" size="50" onkeydown="keyCode(event)"> 
 
 <script>
-function keyCode(event) {
-  var x = event.keyCode;
-  if (x == 27) {
-    alert ("You pressed the Escape key!");
-  }
-}
-</script>
 
-</body>
-</html>
+
 
 
 
@@ -38,13 +30,17 @@ public class GameCode {
   function yellow(){
   }
   
-  function input(){
-    //Checks for button press
+  function keyCode(event) {
+    var x = event.keyCode;
+    if (x == 27) {
+    ;
+    }
   }
   
   function check(){
     //Checks if input matches colorvalue and returns true or calls upon input again if input is false.
   }
+  
   
   function start(){
     while (i < 10){
@@ -80,3 +76,7 @@ public class GameCode {
  
 
 }
+</script>
+
+</body>
+</html>
