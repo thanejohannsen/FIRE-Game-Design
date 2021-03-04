@@ -47,22 +47,22 @@ public class GameCode {
 	public static void game (Scanner scan, int index) {
 		chooseRandomColor(scan);
 		if (index == 0) { //red screen
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#FF0000";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 1) { //white screen
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#FFFFFF";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 2) { //green screen
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#00FF1A";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 3) { //blue screen
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#00BBFF";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 4) { //purple screen
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#FF00F7";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else
-			ctx.fillStyle = "#000000";
+			ctx.fillStyle = "#FFFB00";
 			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		}
 		
