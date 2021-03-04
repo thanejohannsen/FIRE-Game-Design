@@ -10,12 +10,6 @@ import java.io.*;
 import java.util.*;
 
 
-
-
-
-
-
-
 public class GameCode {
 	var canvas = document.getElementById("myCanvas");
 	canvas.width  = window.innerWidth;
@@ -29,8 +23,6 @@ public class GameCode {
 		Scanner scan = new Scanner(System.in);
 		
 		populateList(color);
-		
-		
 		
 		scan.close();
 	}
