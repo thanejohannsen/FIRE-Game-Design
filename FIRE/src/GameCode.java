@@ -2,9 +2,28 @@
 <html>
 <body>
 
-<p>Press the Escape/Esc key on the keyboard (usually in the top left corner) in the input field, to alert some text.</p>
+
+
+
+// Get the canvas element form the page
+var canvas = document.getElementById("myCanvas");
+ 
+/* Rresize the canvas to occupy the full page, 
+   by getting the widow width and height and setting it to canvas*/
+ 
+canvas.width  = window.innerWidth;
+canvas.height = window.innerHeight;
+ 
+
+
 
 <input type="text" size="50" onkeydown="keyCode(event)"> 
+
+
+
+
+
+
 
 <script>
 
