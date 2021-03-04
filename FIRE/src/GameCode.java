@@ -11,13 +11,10 @@ import java.util.*;
 
 
 var canvas = document.getElementById("myCanvas");
-
 canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
-
 var ctx = canvas.getContext("2d");
-ctx.fillStyle = "#000000";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
+
 
 
 
@@ -50,17 +47,23 @@ public class GameCode {
 	public static void game (Scanner scan, int index) {
 		chooseRandomColor(scan);
 		if (index == 0) { //red screen
-			
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 1) { //white screen
-			
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 2) { //green screen
-			
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 3) { //blue screen
-			
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		} else if (index == 4) { //purple screen
-			
-		} else if (index == 5) { //yellow screen
-			
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
+		} else
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, canvas.width, canvas.height);
 		}
 		
 	}
