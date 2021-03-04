@@ -3,7 +3,7 @@
 <body>
 
 <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
-
+<input type="text" size="5" onkeypress="myFunction(event)">
 
 <script>
 
@@ -12,6 +12,12 @@ canvas.width  = window.innerWidth;
 canvas.height = window.innerHeight;
 var ctx = canvas.getContext("2d");
 
+var colorlist = ["red","white","green","blue","purple","yellow"]
+
+function myFunction(event) {
+  var x = event.which || event.keyCode;
+  document.getElementById("demo").innerHTML = "The Unicode value is: " + x;
+}
 function CanvasColorFill () {
 	var colorvalue = Math.floor(Math.random() * 6);
 	if (colorvalue == 0) { //red screen
@@ -36,6 +42,7 @@ function CanvasColorFill () {
 
 }
 
+CanvasColorFill();
 
 
 
@@ -44,4 +51,3 @@ function CanvasColorFill () {
 
 </body>
 </html>
-
