@@ -1,8 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Press the Escape/Esc key on the keyboard (usually in the top left corner) in the input field, to alert some text.</p>
+
+<input type="text" size="50" onkeydown="keyCode(event)"> 
+
+<script>
+function keyCode(event) {
+  var x = event.keyCode;
+  if (x == 27) {
+    alert ("You pressed the Escape key!");
+  }
+}
+</script>
+
+</body>
+</html>
+
+
+
 
 public class GameCode {
   
     
- #each function displays corresponding colors 
+ //each function displays corresponding colors 
   function white(){
   }
   function red(){
@@ -17,16 +39,16 @@ public class GameCode {
   }
   
   function input(){
-    #Checks for button press
+    //Checks for button press
   }
   
   function check(){
-    #Checks if input matches colorvalue and returns true or calls upon input again if input is false.
+    //Checks if input matches colorvalue and returns true or calls upon input again if input is false.
   }
   
   function start(){
     while (i < 10){
-      # i is = to the amount of iterations of the game
+      // i is = to the amount of iterations of the game
       var colorvalue = Math.floor(Math.random() * 6);
       
       if (colorvalue = 0){
