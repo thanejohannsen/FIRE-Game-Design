@@ -10,16 +10,17 @@ import java.io.*;
 import java.util.*;
 
 
-var canvas = document.getElementById("myCanvas");
-canvas.width  = window.innerWidth;
-canvas.height = window.innerHeight;
-var ctx = canvas.getContext("2d");
+
 
 
 
 
 
 public class GameCode {
+	var canvas = document.getElementById("myCanvas");
+	canvas.width  = window.innerWidth;
+	canvas.height = window.innerHeight;
+	var ctx = canvas.getContext("2d");
 	
 	private static ArrayList<String> color = new ArrayList<>();
 	private static Random randomGenerator = new Random();
