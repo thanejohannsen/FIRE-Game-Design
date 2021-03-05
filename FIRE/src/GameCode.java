@@ -11,8 +11,8 @@
 <script>
 
 var canvas = document.getElementById("myCanvas");
-canvas.width  = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.width  = 800;
+canvas.height = 500;
 var ctx = canvas.getContext("2d");
 
 //var colorlist = ["red","white","green","blue","purple","yellow"]
@@ -46,42 +46,66 @@ function CanvasColorFill (rand) {
 
 
 
-function keycheck(key,rand){
+async function keycheck(key,rand){
 	if (rand == 0) { //red screen
 		if (key == 113 || key == 119 || key == 97 || key == 115 || key == 122 || key == 120){
-        	start();
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
+            start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	} else if (rand == 1) { //white screen
 		if (key == 91 || key == 93 || key == 92 || key == 39 || key == 13){
-        	start();
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
+            start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	} else if (rand == 2) { //green screen
 		if (key == 111 || key == 112 || key == 108 || key == 59 || key == 46 || key == 47){
-        	start();
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
+            start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	} else if (rand == 3) { //blue screen
 		if (key == 101 || key == 114 || key == 100 || key == 102 || key == 99 || key == 118){
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
         	start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	} else if (rand == 4) { //purple screen
 		if (key == 117 || key == 105 || key == 106 || key == 107 || key == 109 || key == 44){
-        	start();
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
+            start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	} else {  //yellow screen
 		if (key == 116 || key == 121 || key == 103 || key == 104 || key == 98 || key == 110){
-        	start();
+        	document.getElementById("demo").innerHTML = "RIGHT";
+            await sleep(2000);
+            start();
         }else{
-        	document.getElementById("demo").innerHTML = "WRONG";
+        	document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+            await sleep(5000)
+            keyget(rand);
         }
 	}
     
@@ -90,6 +114,8 @@ function keycheck(key,rand){
 }
 
 async function start(){
+	document.getElementById("demo").innerHTML = ""
+    document.getElementById("myText").value = "";
 	var colorvalue = Math.floor(Math.random() * 6);
   	CanvasColorFill(colorvalue);
     await sleep(5000);
@@ -98,24 +124,9 @@ async function start(){
 
 function keyget(colorvalue){
 	var key = document.getElementById("myText").value.charCodeAt(0);
+    document.getElementById("myText").value = "";
     keycheck(key, colorvalue);
 }
-/*
-
-
-async function run(key) {
-	var i;
-	for (i = 0; i < 10; i++) {
-    	var colorvalue = Math.floor(Math.random() * 6);
-  		CanvasColorFill(colorvalue);
-        keycheck(key,colorvalue);
-		//await sleep(2000);
-	}
-  
-}*/
-//run();
-
-
 
 
 
@@ -125,3 +136,4 @@ async function run(key) {
 
 </body>
 </html>
+
