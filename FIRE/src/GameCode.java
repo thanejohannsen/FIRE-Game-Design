@@ -5,6 +5,7 @@
 <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
 <input type="text" size="5" onkeypress="myFunction(event)">
 
+
 <script>
 
 var canvas = document.getElementById("myCanvas");
@@ -18,6 +19,11 @@ function myFunction(event) {
   var x = event.which || event.keyCode;
   document.getElementById("demo").innerHTML = "The Unicode value is: " + x;
 }
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 function CanvasColorFill () {
 	var colorvalue = Math.floor(Math.random() * 6);
 	if (colorvalue == 0) { //red screen
@@ -39,10 +45,24 @@ function CanvasColorFill () {
 		ctx.fillStyle = "#FFFB00";
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 	}
+    var colorvalue = 0
 
 }
 
-CanvasColorFill();
+
+async function run() {
+	var i;
+	for (i = 0; i < 10; i++) {
+  	CanvasColorFill();
+	await sleep(1000);
+	}
+  
+}
+run();
+
+
+
+
 
 
 
