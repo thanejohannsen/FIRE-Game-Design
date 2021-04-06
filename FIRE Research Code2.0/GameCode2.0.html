@@ -1,0 +1,149 @@
+﻿
+<!DOCTYPE html>
+<html>
+<!--
+In order to play:
+
+Click Start button.
+When a color pops up click the same colored button on your key board.
+If you are correct a new color will appear.
+If you are incorrect you will be asked to try again.
+
+-->
+<head>
+    <style>
+                /*
+        CSS code that formats buttons
+        */
+                .button {
+                    border: none;
+                    position: relative;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    /*left:10px;
+          top:100px;*/
+                }
+
+                .start {
+                    background-color: #ad8582;
+                }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+
+
+    <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
+    <button class="button start" id="myButton" onclick="start()">Start</button>
+    <p id="demo"></p>
+
+
+    <script>
+
+        document.body.style.backgroundColor = "#a3a19b";
+        var canvas = document.getElementById("myCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight-100;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        var duplicate = 1
+        var clapping = new Audio('clapping.wav')
+        var uhoh = new Audio('uhoh.mp3')
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        function canvasflash() {
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        }
+        function CanvasColorFill(rand) {
+
+            if (rand == 0) { //red screen
+                ctx.fillStyle = "#d93e59";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else if (rand == 1) { //blue screen
+                ctx.fillStyle = "#0857d6";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            } else if (rand == 2) { //green screen
+                ctx.fillStyle = "#74ba3e";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+
+
+        async function keycheck(key, rand) {
+            if (rand == 0) { //red screen
+                if (key == 192 || key == 51 || key == 17 || key == 18) {
+                    canvasflash();
+                    clapping.play();
+                    await sleep(3000)
+                    start();
+                } else {
+                    //uhoh.play();
+                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+                }
+            } else if (rand == 1) { //blue screen
+                if (key == 35 || key == 13 || key == 36 || key == 109) {
+                    canvasflash();
+                    //await sleep(50);
+                    clapping.play();
+                    await sleep(3000)
+                    start();
+                } else {
+                    //uhoh.play();
+                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+                }
+            } else if (rand == 2) { //green screen
+                if (key == 45 || key == 33 || key == 37 || key == 39) {
+                    canvasflash();
+                    //await sleep(50);
+                    clapping.play();
+                    await sleep(3000)
+                    start();
+                } else {
+                    //uhoh.play();
+                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
+                }
+            } 
+        }
+
+        function start() {
+            document.getElementById("myButton").disabled = true;
+            document.getElementById("demo").innerHTML = "";
+            window.colorvalue = Math.floor(Math.random() * 3);
+            if (duplicate == colorvalue) {
+                start();
+            }
+            duplicate = colorvalue;
+            CanvasColorFill(colorvalue);
+        }
+
+
+        document.addEventListener("keydown", function (event) {
+            var key = event.keyCode;
+            if (key == 27) { //user hits escape.
+                document.getElementById("myButton").disabled = false;
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            else {
+                keycheck(key, colorvalue);
+            }
+
+        })
+
+
+
+    </script>
+
+</body>
+</html>
