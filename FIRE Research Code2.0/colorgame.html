@@ -1,4 +1,5 @@
 ﻿
+
 <!DOCTYPE html>
 <html>
 <!--
@@ -57,9 +58,7 @@ If you are incorrect you will be asked to try again.
         var duplicate = 1
         var clapping = new Audio('clapping.wav')
         var uhoh = new Audio('uhoh.mp3')
-        function sleep(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
+
         function canvasflash() {
             ctx.fillStyle = "#000000";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -76,39 +75,35 @@ If you are incorrect you will be asked to try again.
             } else if (rand == 2) { //green screen
                 ctx.fillStyle = "#74ba3e";
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
         }
 
 
 
-        async function keycheck(key, rand) {
+        function keycheck(key, rand) {
             if (rand == 0) { //red screen
-                if (key == 192 || key == 51 || key == 17 || key == 18) {
+                if (key == 65) {
                     canvasflash();
                     clapping.play();
-                    await sleep(3000)
-                    start();
+                    setTimeout(start,3000)
                 } else {
                     //uhoh.play();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 1) { //blue screen
-                if (key == 35 || key == 13 || key == 36 || key == 109) {
+                if (key == 83) {
                     canvasflash();
-                    //await sleep(50);
                     clapping.play();
-                    await sleep(3000)
-                    start();
+                    setTimeout(start, 3000)
                 } else {
                     //uhoh.play();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 2) { //green screen
-                if (key == 45 || key == 33 || key == 37 || key == 39) {
+                if (key == 68) {
                     canvasflash();
-                    //await sleep(50);
                     clapping.play();
-                    await sleep(3000)
-                    start();
+                    setTimeout(start, 3000)
                 } else {
                     //uhoh.play();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
@@ -119,6 +114,7 @@ If you are incorrect you will be asked to try again.
         function start() {
             document.getElementById("myButton").disabled = true;
             document.getElementById("demo").innerHTML = "";
+            
             window.colorvalue = Math.floor(Math.random() * 3);
             if (duplicate == colorvalue) {
                 start();
@@ -127,9 +123,10 @@ If you are incorrect you will be asked to try again.
             CanvasColorFill(colorvalue);
         }
 
-
-        document.addEventListener("keydown", function (event) {
-            var key = event.keyCode;
+        document.addEventListener("keydown", keyListener);
+        function keyListener(e) {
+            if (e.repeat) { return }
+            var key = e.keyCode;
             if (key == 27) { //user hits escape.
                 document.getElementById("myButton").disabled = false;
                 ctx.fillStyle = "#FFFFFF";
@@ -139,8 +136,8 @@ If you are incorrect you will be asked to try again.
                 keycheck(key, colorvalue);
             }
 
-        })
-
+        }
+  
 
 
     </script>
