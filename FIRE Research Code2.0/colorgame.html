@@ -1,5 +1,3 @@
-﻿
-
 <!DOCTYPE html>
 <html>
 <!--
@@ -78,34 +76,41 @@ If you are incorrect you will be asked to try again.
             }
         }
 
+        function wrongAudio() {
+            //put wrongaudio array
+        }
 
+        function rightAudio() {
+            //put rightaudio array
+            clapping.play();
+        }
 
         function keycheck(key, rand) {
             if (rand == 0) { //red screen
-                if (key == 65) {
+                if (key == 192 || key == 52 || key == 17 || key == 67) {
                     canvasflash();
-                    clapping.play();
+                    rightAudio();
                     setTimeout(start,3000)
                 } else {
-                    //uhoh.play();
+                    wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 1) { //blue screen
-                if (key == 83) {
+                if (key == 53 || key == 57 || key == 86 || key == 188) {
                     canvasflash();
-                    clapping.play();
+                    rightAudio();
                     setTimeout(start, 3000)
                 } else {
-                    //uhoh.play();
+                    wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 2) { //green screen
-                if (key == 68) {
+                if (key == 48 || key == 8 || key == 190 || key == 16) {
                     canvasflash();
-                    clapping.play();
+                    rightAudio();
                     setTimeout(start, 3000)
                 } else {
-                    //uhoh.play();
+                    wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } 
@@ -144,3 +149,4 @@ If you are incorrect you will be asked to try again.
 
 </body>
 </html>
+
