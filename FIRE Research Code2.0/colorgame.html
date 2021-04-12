@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <!--
@@ -87,7 +88,7 @@ If you are incorrect you will be asked to try again.
 
         function keycheck(key, rand) {
             if (rand == 0) { //red screen
-                if (key == 192 || key == 52 || key == 17 || key == 67) {
+                if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
                     canvasflash();
                     rightAudio();
                     setTimeout(start,3000)
@@ -96,7 +97,7 @@ If you are incorrect you will be asked to try again.
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 1) { //blue screen
-                if (key == 53 || key == 57 || key == 86 || key == 188) {
+                if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
                     canvasflash();
                     rightAudio();
                     setTimeout(start, 3000)
@@ -105,7 +106,7 @@ If you are incorrect you will be asked to try again.
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 2) { //green screen
-                if (key == 48 || key == 8 || key == 190 || key == 16) {
+                if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
                     canvasflash();
                     rightAudio();
                     setTimeout(start, 3000)
@@ -149,4 +150,3 @@ If you are incorrect you will be asked to try again.
 
 </body>
 </html>
-
