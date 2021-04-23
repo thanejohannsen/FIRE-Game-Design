@@ -54,9 +54,18 @@ If you are incorrect you will be asked to try again.
         ctx.fillStyle = "#FFFFFF";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-        var duplicate = 1
-        var clapping = new Audio('clapping.wav')
-        var uhoh = new Audio('uhoh.mp3')
+        //audio
+        var audio1 = new Audio('audio/1.wav');
+        var audio2 = new Audio('audio/2.wav');
+        var audio3 = new Audio('audio/3.wav');
+        var audio4 = new Audio('audio/4.wav');
+        var audio5 = new Audio('audio/5.wav');
+        var audio6 = new Audio('audio/6.wav');
+        var audio7 = new Audio('audio/7.wav');
+        var audio8 = new Audio('audio/clapping.wav');
+        var audio9 = new Audio('audio/uhoh.mp3');
+
+        var audioArray = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio9];
 
         function canvasflash() {
             ctx.fillStyle = "#000000";
@@ -77,13 +86,10 @@ If you are incorrect you will be asked to try again.
             }
         }
 
-        function wrongAudio() {
-            //put wrongaudio array
-        }
-
+        function wrongAudio() {}
         function rightAudio() {
-            //put rightaudio array
-            clapping.play();
+            var rN = Math.floor(Math.random() * 9);
+            audioArray[rN].play();
         }
 
         function keycheck(key, rand) {
@@ -91,7 +97,7 @@ If you are incorrect you will be asked to try again.
                 if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
                     canvasflash();
                     rightAudio();
-                    setTimeout(start,3000)
+                    setTimeout(start,2000)
                 } else {
                     wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
@@ -100,7 +106,7 @@ If you are incorrect you will be asked to try again.
                 if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
                     canvasflash();
                     rightAudio();
-                    setTimeout(start, 3000)
+                    setTimeout(start, 2000)
                 } else {
                     wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
@@ -109,7 +115,7 @@ If you are incorrect you will be asked to try again.
                 if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
                     canvasflash();
                     rightAudio();
-                    setTimeout(start, 3000)
+                    setTimeout(start, 2000)
                 } else {
                     wrongAudio();
                     document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
@@ -118,14 +124,8 @@ If you are incorrect you will be asked to try again.
         }
 
         function start() {
-            document.getElementById("myButton").disabled = true;
-            document.getElementById("demo").innerHTML = "";
-            
+
             window.colorvalue = Math.floor(Math.random() * 3);
-            if (duplicate == colorvalue) {
-                start();
-            }
-            duplicate = colorvalue;
             CanvasColorFill(colorvalue);
         }
 
