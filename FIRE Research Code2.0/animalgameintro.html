@@ -40,7 +40,6 @@ If you are incorrect you will be asked to try again.
 
 
     <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
-    <button class="button start" id="myButton" onclick="start()">Start</button>
     <p id="demo"></p>
 
 
@@ -57,17 +56,17 @@ If you are incorrect you will be asked to try again.
         //chicken data
         var chickenNoise = new Audio('chickenNoise.mp3');
         var chicken = new Image();
-        chicken.src = "Chicken.jfif";
+        chicken.src = "animals/Chicken.jfif";
 
-        //cow data
+        //cow dat
         var cowNoise = new Audio('cowNoise.mp3');
         var cow = new Image();
-        cow.src = "Cow.png";
+        cow.src = "animals/Cow.png";
 
         //pig data
         var pigNoise = new Audio('pigNoise.mp3');
         var pig = new Image();
-        pig.src = "Pig.png";
+        pig.src = "animals/Pig.png";
 
 
 
@@ -80,7 +79,7 @@ If you are incorrect you will be asked to try again.
             var x = Math.floor(Math.random() * (canvas.width - 300));
             var y = Math.floor(Math.random() * (canvas.height - 300));
             if (rand == 0) { //Chicken
-                ctx.drawImage(chicken, x, y);
+                ctx.drawImage(chicken, x, y, 400, 300);
                 document.removeEventListener("keydown", keyListener);
                 await sleep(2000);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -88,7 +87,7 @@ If you are incorrect you will be asked to try again.
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 document.addEventListener("keydown", keyListener);
             } else if (rand == 1) { //Cow
-                ctx.drawImage(cow, x, y);
+                ctx.drawImage(cow, x, y, 400, 300);
                 document.removeEventListener("keydown", keyListener);
                 await sleep(3000);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -96,7 +95,7 @@ If you are incorrect you will be asked to try again.
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 document.addEventListener("keydown", keyListener);
             } else if (rand == 2) { //Pig
-                ctx.drawImage(pig, x, y);
+                ctx.drawImage(pig, x, y, 400, 300);
                 document.removeEventListener("keydown", keyListener);
                 await sleep(2000);
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
