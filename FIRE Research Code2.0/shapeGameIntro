@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<!--
+In order to play:
+Click Start button.
+When a shape pops up click the same colored button on your key board.
+If you are correct a new shape will appear.
+If you are incorrect you will be asked to try again.
+-->
+<head>
+    <style>
+                /*
+        CSS code that formats buttons
+        */
+                .button {
+                    border: none;
+                    position: relative;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    /*left:10px;
+          top:100px;*/
+                }
+
+                .start {
+                    background-color: #ad8582;
+                }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+
+
+    <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
+    <p id="demo"></p>
+
+
+    <script>
+
+        document.body.style.backgroundColor = "#a3a19b";
+        var canvas = document.getElementById("myCanvas");
+        canvas.width = window.innerWidth-200;
+        canvas.height = window.innerHeight-100;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        //circle data
+        var circle = new Image();
+        circle.src = "ahpes/pinkCircle.png";
+
+        //rectangle data
+        var rectangle = new Image();
+        rectangle.src = "shapes/greenRectangle.png";
+
+        //triangle data
+        var triangle = new Image();
+        triangle.src = "shapes/blueTriangle.png";
+
+
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+
+        async function canvasDraw(rand) {
+            var x = Math.floor(Math.random() * (canvas.width - 300));
+            var y = Math.floor(Math.random() * (canvas.height - 300));
+            if (rand == 0) { //Circle
+                ctx.drawImage(circle, x, y, 400, 300);
+                document.removeEventListener("keydown", keyListener);
+                await sleep(2000);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                document.addEventListener("keydown", keyListener);
+            } else if (rand == 1) { //rectangle
+                ctx.drawImage(rectangle, x, y, 400, 300);
+                document.removeEventListener("keydown", keyListener);
+                await sleep(3000);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                document.addEventListener("keydown", keyListener);
+            } else if (rand == 2) { //triangle
+                ctx.drawImage(triangle, x, y, 400, 300);
+                document.removeEventListener("keydown", keyListener);
+                await sleep(2000);
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                document.addEventListener("keydown", keyListener);
+            }
+        }
+
+        function shape(key) {
+            //CIRCLE
+            if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
+                canvasDraw(0);
+                clapping.play();
+            }
+            //RECTANGLE
+            if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
+                canvasDraw(1);
+                clapping.play();
+            }
+            //TRIANGLE
+            if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
+                canvasDraw(2);
+                clapping.play();
+            }
+        }
+
+        document.addEventListener("keydown", keyListener);
+        function keyListener(e) {
+            if (e.repeat) { return }
+            var key = e.keyCode;
+            shape(key);
+            sleep(2000)
+        }
+  
+
+
+    </script>
+
+</body>
+</html>
