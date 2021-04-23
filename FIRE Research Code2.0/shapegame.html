@@ -100,21 +100,21 @@ If you are incorrect you will be asked to try again.
             }
         }
 
-        function animalNoise(key) {
-            //CHICKEN
+        function celebrateNoise(key) {
+            //CIRCLE
             if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
                 canvasDraw(0);
-                chickenNoise.play();
+                clapping.play();
             }
-            //COW
+            //RECTANGLE
             if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
                 canvasDraw(1);
-                cowNoise.play();
+                clapping.play();
             }
-            //PIG
+            //TRIANGLE
             if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
                 canvasDraw(2);
-                pigNoise.play();
+                clapping.play();
             }
         }
 
@@ -122,7 +122,7 @@ If you are incorrect you will be asked to try again.
         function keyListener(e) {
             if (e.repeat) { return }
             var key = e.keyCode;
-            animalNoise(key);
+            celebrateNoise(key);
             sleep(2000)
         }
   
