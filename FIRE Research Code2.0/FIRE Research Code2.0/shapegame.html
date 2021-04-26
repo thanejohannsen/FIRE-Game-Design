@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<!--
+In order to play:
+Click Start button.
+When a shape pops up click the same colored button on your key board.
+If you are correct a new shape will appear.
+If you are incorrect you will be asked to try again.
+-->
+<head>
+    <style>
+        /*
+        CSS code that formats buttons
+        */
+        .button {
+            border: none;
+            position: relative;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            /*left:10px;
+          top:100px;*/
+        }
+
+        .start {
+            background-color: #ad8582;
+        }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+
+
+    <canvas id="myCanvas" style="border:1px solid #000000;"></canvas>
+    <button class="button start" id="myButton" onclick="start()">Start</button>
+    <p id="demo"></p>
+
+
+    <script>
+
+        document.body.style.backgroundColor = "#a3a19b";
+        var canvas = document.getElementById("myCanvas");
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight-100;
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#FFFFFF";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        //audio
+        var audio1 = new Audio('audio/1.wav');
+        var audio2 = new Audio('audio/2.wav');
+        var audio3 = new Audio('audio/3.wav');
+        var audio4 = new Audio('audio/4.wav');
+        var audio5 = new Audio('audio/5.wav');
+        var audio6 = new Audio('audio/6.wav');
+        var audio7 = new Audio('audio/7.wav');
+        var audio8 = new Audio('audio/clapping.wav');
+        var audio9 = new Audio('audio/uhoh.mp3');
+
+        var audioArray = [audio1, audio2, audio3, audio4, audio5, audio6, audio7, audio8, audio9];
+
+        //circle data
+        var circle = new Image();
+        circle.src = "shapes/pinkCircle.png";
+
+        //rectangle data
+        var rectangle = new Image();
+        rectangle.src = "shapes/greenRectangle.png";
+
+        //triangle data
+        var triangle = new Image();
+        triangle.src = "shapes/blueTriangle.png";
+
+
+        function canvasflash() {
+            ctx.fillStyle = "#000000";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        }
+        function CanvasColorFill(rand) {
+            var x = canvas.width/3.5;
+            var y = canvas.height/3.5;
+            if (rand == 0) { //Circle
+                ctx.drawImage(circle, 0, 0, canvas.width, canvas.height);
+            } else if (rand == 1) { //rectangle
+                ctx.drawImage(rectangle, 0, 0, canvas.width, canvas.height);
+            } else if (rand == 2) { //triangle
+                ctx.drawImage(triangle, 0, 0, canvas.width, canvas.height);
+            }
+        }
+
+        function wrongAudio() {
+            //put wrongaudio array
+            
+        }
+
+        function rightAudio() {
+            var rN = Math.floor(Math.random() * 9);
+            audioArray[rN].play();
+        }
+
+        function keycheck(key, rand) {
+            if (rand == 0) { //red screen
+                if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
+                    canvasflash();
+                    rightAudio();
+                    document.removeEventListener("keydown", keyListener);
+                    setTimeout(start, 2000)
+                } else {
+                    wrongAudio();
+                }
+            } else if (rand == 1) { //blue screen
+                if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
+                    canvasflash();
+                    rightAudio();
+                    document.removeEventListener("keydown", keyListener);
+                    setTimeout(start, 2000)
+                } else {
+                    wrongAudio();
+                }
+            } else if (rand == 2) { //green screen
+                if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
+                    canvasflash();
+                    rightAudio();
+                    document.removeEventListener("keydown", keyListener);
+                    setTimeout(start, 2000)
+                } else {
+                    wrongAudio();
+                }
+            }
+        }
+
+        function start() {
+            document.addEventListener("keydown", keyListener);
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            document.getElementById("myButton").disabled = true;
+            window.shapeType = Math.floor(Math.random() * 3);
+            CanvasColorFill(shapeType);
+        }
+
+        
+        function keyListener(e) {
+            if (e.repeat) { return }
+            var key = e.keyCode;
+            if (key == 27) { //user hits escape.
+                document.getElementById("myButton").disabled = false;
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+            else {
+                keycheck(key, shapeType);
+            }
+
+        }
+
+
+
+    </script>
+
+</body>
+</html>

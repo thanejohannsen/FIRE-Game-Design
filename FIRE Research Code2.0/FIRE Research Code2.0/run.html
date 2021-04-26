@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<!--
+In order to play:
+
+Click Start button.
+When a color pops up click the same colored button on your key board.
+If you are correct a new color will appear.
+If you are incorrect you will be asked to try again.
+
+-->
+<head>
+    <style>
+                /*
+        CSS code that formats buttons
+        */
+                .button {
+                    border: none;
+                    position: center;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 50px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    /*left:10px;
+          top:100px;*/
+                }
+
+                .game {
+                    background-color: #ad8582;
+                    /*left: 200px;
+                    top: 200px;*/
+                }
+                .learn {
+                    background-color: #ad8582;
+                    /*left: 500px;
+                    top: 200px;*/
+                }
+    </style>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+
+
+    
+    <a href="colorgame.html"<button class="button game">Color Game</button>
+    <a href="shapegame.html"<button class="button game">Shape Game</button>
+    <a href="animalgame.html"<button class="button game">Animal Game</button>
+    <a href="animalgameintro.html"<button class="button learn">Animal Learn</button>
+    <p id="demo"></p>
+
+    <script>
+
+        document.body.style.backgroundColor = "#000000";
+
+
+    </script>
+
+</body>
+</html>
+
