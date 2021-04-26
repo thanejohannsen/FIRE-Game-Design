@@ -97,34 +97,34 @@ If you are incorrect you will be asked to try again.
                 if (key == 192 || key == 52 || key == 16 || key == 88) { //tilda, 4, shift, x
                     canvasflash();
                     rightAudio();
+                    document.removeEventListener("keydown", keyListener);
                     setTimeout(start,2000)
                 } else {
                     wrongAudio();
-                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 1) { //blue screen
                 if (key == 48 || key == 8 || key == 17 || key == 190) { //0, backspace, cntrl**, period
                     canvasflash();
                     rightAudio();
+                    document.removeEventListener("keydown", keyListener);
                     setTimeout(start, 2000)
                 } else {
                     wrongAudio();
-                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } else if (rand == 2) { //green screen
                 if (key == 53 || key == 57 || key == 86 || key == 77) { // 5, 9, v, m
                     canvasflash();
                     rightAudio();
+                    document.removeEventListener("keydown", keyListener);
                     setTimeout(start, 2000)
                 } else {
                     wrongAudio();
-                    document.getElementById("demo").innerHTML = "WRONG, TRY AGAIN";
                 }
             } 
         }
 
         function start() {
-
+            document.addEventListener("keydown", keyListener);
             window.colorvalue = Math.floor(Math.random() * 3);
             CanvasColorFill(colorvalue);
         }
